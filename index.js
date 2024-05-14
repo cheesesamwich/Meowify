@@ -1,22 +1,22 @@
  
-const { app, BrowserWindow, components, session, Menu } = require('electron');
-const fs = require('fs');
+import { app, BrowserWindow, components, session, Menu } from "electron";
+import * as fs from "fs";
+import dirnameworkaround from './dirname.cjs';
+const { getDirName } = dirnameworkaround;
 
 function loadExtensions() {
-    return new Promise((resolve, reject) => {
-        const extensionsPath = `${__dirname}/extensions`;
-        fs.readdir(extensionsPath, async (err, items) => {
-            if (err) {
-                reject(err);
-                return;
-            }
-            for (const item of items) {
-                const extensionPath = `${extensionsPath}/${item}`;
-                await session.defaultSession.loadExtension(extensionPath);
-                console.log(`Successfully loaded extension: ${item}`);
-            }
-            resolve();
-        });
+    return new Promise(async (resolve, reject) => {
+        let extensions = await fs.readdirSync(`${getDirName()}/extensions/core`).map((extensionName) => ({ name: extensionName, user: false }));
+        if(fs.existsSync(`${getDirName()}/extensions/user`)) {
+            extensions = extensions.concat(await fs.readdirSync(`${getDirName()}/extensions/user`).map((extensionName) => ({ name: extensionName, user: true })));
+        }
+        for (const item of extensions) {
+            const extensionPath = `${getDirName()}/extensions/${item.user ? "user/" : "core/"}${item.name}`;
+            console.log(`Trying to load ${extensionPath}`);
+            await session.defaultSession.loadExtension(extensionPath);
+            console.log(`Successfully loaded extension: ${item.name}`);
+        }
+        resolve();
     });
 }
 
@@ -30,7 +30,7 @@ async function createWindow() {
     });
 
     //This doesn't work for some reason :(
-    //win.setIcon(`${__dirname}/meowify_logo.ico`);
+    //win.setIcon(`${getDirName()}/assets/logo.png`);
 
     const template = [
         {

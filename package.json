@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "meowify",
   "version": "1.0.0",
   "description": "The swaggiest spotify client mod",
