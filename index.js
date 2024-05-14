@@ -4,7 +4,7 @@ const fs = require('fs');
 
 function loadExtensions() {
     return new Promise((resolve, reject) => {
-        const extensionsPath = `${process.cwd()}/extensions`;
+        const extensionsPath = `${__dirname}/extensions`;
         fs.readdir(extensionsPath, async (err, items) => {
             if (err) {
                 reject(err);
@@ -25,10 +25,11 @@ async function createWindow() {
         width: 800,
         height: 600,
         webPreferences: {
-        nodeIntegration: true
+        nodeIntegration: true,
         }
     });
-
+    //Doesn't work for some reason :(
+    //win.setIcon(`${__dirname}/meowify_logo.ico`);
     const template = [
         {
           label: 'Meowify',
@@ -36,7 +37,7 @@ async function createWindow() {
             {
               label: 'Reboot',
               click() {
-                console.log("i havent figured out how to do this yet, sorry");
+                console.log("i havent figured out how to do this yet, sorry lmao");
               }
             },
           ]
