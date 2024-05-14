@@ -30,6 +30,10 @@ Start Meowify:
 ```shell
 pnpm start
 ```
-## Custom Extensions
+## Custom extensions
 
 ### To install custom extensions, simply create a new folder with the path `Meowify/extensions/user` and place any extension folders in there, only unpacked chrome extensions are supported (don't quote me on that one).
+
+## Included extension credits
+
+![](https://img.shields.io/badge/Ublock%20Origin-FF5722?style=for-the-badge&logoColor=white)
