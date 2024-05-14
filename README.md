@@ -30,3 +30,6 @@ Start Meowify:
 ```shell
 pnpm start
 ```
+## Custom Extensions
+
+### To install custom extensions, simply create a new folder with the path `Meowify/extensions/user` and place any extension folders in there, only unpacked chrome extensions are supported (don't quote me on that one).
