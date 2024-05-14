@@ -36,4 +36,4 @@ pnpm start
 
 ## Included extension credits
 
-![](https://img.shields.io/badge/Ublock%20Origin-FF5722?style=for-the-badge&logoColor=white)
+[Ublock Origin](https://github.com/gorhill/uBlock)
