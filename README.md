@@ -1,7 +1,7 @@
 # Meowify
 An electron wrapper for the spotify web client with custom extension and modding support
 
-![](https://raw.githubusercontent.com/cheesesamwich/Meowify/main/meowify%20logo.png?token=GHSAT0AAAAAACRU4QTFZDBH2RIJYG4WJSNQZSCVY4A)
+![image](https://github.com/cheesesamwich/Meowify/assets/149597648/eaef83da-a0ca-4243-8044-8867a2a80fd0)
 
 ## Installation
 
