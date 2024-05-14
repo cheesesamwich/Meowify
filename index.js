@@ -28,8 +28,10 @@ async function createWindow() {
         nodeIntegration: true,
         }
     });
-    //Doesn't work for some reason :(
+
+    //This doesn't work for some reason :(
     //win.setIcon(`${__dirname}/meowify_logo.ico`);
+
     const template = [
         {
           label: 'Meowify',
@@ -63,22 +65,23 @@ async function createWindow() {
 
     win.loadURL('https://open.spotify.com/');
 }
-    app.whenReady().then(async () => 
-        {
-            await components.whenReady();
-            console.log('components ready:', components.status());
-            createWindow();
 
-        });
+app.whenReady().then(async () => 
+{
+    await components.whenReady();
+    console.log('components ready:', components.status());
+    createWindow();
 
-    app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
-    });
+});
 
-    app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
-    }
-    });
+app.on('window-all-closed', () => {
+if (process.platform !== 'darwin') {
+    app.quit();
+}
+});
+
+app.on('activate', () => {
+if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+}
+});
