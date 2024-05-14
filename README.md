@@ -30,4 +30,3 @@ Start Meowify:
 ```shell
 pnpm start
 ```
-⚠️ Make sure this is ran in the root directory (pro tip: the one with the package.json file)
