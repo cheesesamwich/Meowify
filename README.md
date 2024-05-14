@@ -5,7 +5,7 @@ An electron wrapper for the spotify web client with custom extensions and moddin
 
 ## Installation
 
-### For now there are no builds, so you have to run the software directly from your terminal
+### For now there are no builds, so you have to run the software directly from your terminal (feel free to build your own locally for proper use)
 
 Install `pnpm`:
 
