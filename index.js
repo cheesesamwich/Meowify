@@ -1,17 +1,22 @@
  
 import { app, BrowserWindow, components, session, Menu } from "electron";
 import * as fs from "fs";
-import dirnameworkaround from './dirname.cjs';
-const { getDirName } = dirnameworkaround;
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+function getDirectory()
+{
+    return dirname(fileURLToPath(import.meta.url));
+}
 
 function loadExtensions() {
     return new Promise(async (resolve, reject) => {
-        let extensions = await fs.readdirSync(`${getDirName()}/extensions/core`).map((extensionName) => ({ name: extensionName, user: false }));
-        if(fs.existsSync(`${getDirName()}/extensions/user`)) {
-            extensions = extensions.concat(await fs.readdirSync(`${getDirName()}/extensions/user`).map((extensionName) => ({ name: extensionName, user: true })));
+        let extensions = await fs.readdirSync(`${getDirectory()}/extensions/core`).map((extensionName) => ({ name: extensionName, user: false }));
+        if(fs.existsSync(`${getDirectory()}/extensions/user`)) {
+            extensions = extensions.concat(await fs.readdirSync(`${getDirectory()}/extensions/user`).map((extensionName) => ({ name: extensionName, user: true })));
         }
         for (const item of extensions) {
-            const extensionPath = `${getDirName()}/extensions/${item.user ? "user/" : "core/"}${item.name}`;
+            const extensionPath = `${getDirectory()}/extensions/${item.user ? "user/" : "core/"}${item.name}`;
             console.log(`Trying to load ${extensionPath}`);
             await session.defaultSession.loadExtension(extensionPath);
             console.log(`Successfully loaded extension: ${item.name}`);
@@ -30,7 +35,7 @@ async function createWindow() {
     });
 
     //This doesn't work for some reason :(
-    //win.setIcon(`${getDirName()}/assets/logo.png`);
+    //win.setIcon(`${getDirectory()}/assets/logo.png`);
 
     const template = [
         {
