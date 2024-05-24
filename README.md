@@ -1,6 +1,7 @@
 # Meowify
 An electron wrapper for the spotify web client with custom extensions support
 This isn't really a full project that I will keep developing, more of a proof of concept idea I randomly had and decided to try out- heavily inspired by [vesktop](https://github.com/Vencord/Vesktop)
+   
 ![banner](https://github.com/cheesesamwich/Meowify/assets/149597648/11b5891e-1725-4ad3-a249-aafd0e59ae82)
 
 ## Installation
