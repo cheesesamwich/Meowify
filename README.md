@@ -1,6 +1,6 @@
 # Meowify
-An electron wrapper for the spotify web client with custom extensions and modding support
-
+An electron wrapper for the spotify web client with custom extensions support
+This isn't really a full project that I will keep developing, more of a proof of concept idea I randomly had and decided to try out- heavily inspired by [vesktop](https://github.com/Vencord/Vesktop)
 ![banner](https://github.com/cheesesamwich/Meowify/assets/149597648/11b5891e-1725-4ad3-a249-aafd0e59ae82)
 
 ## Installation
@@ -32,7 +32,7 @@ pnpm start
 ```
 ## Custom extensions
 
-### To install custom extensions, simply create a new folder with the path `Meowify/extensions/user` and place any extension folders in there, only unpacked chrome extensions are supported (don't quote me on that one).
+### To install custom extensions, create a new folder with the path `Meowify/extensions/user` and place any extension folders in there, only unpacked chrome extensions are supported (don't quote me on that one).
 
 ## Included extension credits
 
